@@ -44,7 +44,7 @@
             this.$router.push('/dashboard')
           }
         } catch(error) {
-          alert('Usuário não cadastrado')
+          alert('Usuário não encontrado')
           this.$refs.form.reset()
         }
       }

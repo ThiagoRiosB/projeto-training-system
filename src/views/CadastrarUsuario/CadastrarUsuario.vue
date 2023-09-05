@@ -1,3 +1,67 @@
 <template>
-  Pág. cadastro de usuário
+  <v-app>
+        <v-main>         
+          <v-container class="d-flex justify-center h-screen align-center">
+            <v-form ref="form" class="d-flex flex-column w-50 border rounded elevation-2 pa-5" @submit.prevent="handleSubmit">
+              <h1 class="text-h4 mb-5 pt-2 text-center">Crie sua conta</h1>
+              <v-text-field  v-model="name" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" type="text" label="Nome completo" placeholder="Nome completo"/>
+              <v-text-field  v-model="email" :rules="[value => !!value || 'O e-mail é obrigatório']" variant="outlined" type="email" label="Email" placeholder="Email"/>
+              <v-text-field v-model="password" :rules="[value => value.length >= 8 || 'A senha deve ter no mínimo 8 caracteres!', value => value.length <= 20 || 'A senha deve ter no máximo 20 caracteres!']" variant="outlined" type="password" label="Senha" placeholder="Senha"/>
+              <v-text-field v-model="confirmPassword" :rules="[value => value == password || 'As senhas devem ser iguais!']" variant="outlined" type="password" label="Confirmar Senha" placeholder="Confirmar senha"/>
+              <v-select item-title="Bronza"  v-model="type_plan" label="Escolha o plano" placeholder="Escolha o plano" variant="outlined" :items="items"></v-select>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+               <v-btn variant="outlined" color="success" type="submit">Cadastrar</v-btn>
+               <v-btn variant="outlined" type="submit"><router-link class="text-decoration-none text-black" to="/">Voltar</router-link></v-btn>      
+              </v-card-actions>       
+             </v-form>
+          </v-container>
+        </v-main>
+      </v-app> 
 </template>
+<script>
+import axios from "axios" 
+export default {
+  
+  data() {
+    return {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        type_plan: "Bronze",
+        items: ['Bronze', 'Silver', 'Gold']
+    }
+  },
+  methods: {
+    async handleSubmit() {
+     const {valid} = await this.$refs.form.validate()
+
+     if(!valid) {
+          alert("Preencha todos os dados!")
+          return
+        }
+        axios({
+          url: 'http://localhost:3000/users',
+          method: 'POST',
+          data: {
+            name: this.name,
+            email: this.email,
+            password: this.password,
+            type_plan: this.type_plan
+          }
+        })
+        .then(() => {
+            alert('Cadastrado com sucesso')
+            this.$router.push('/')
+          })
+          .catch((error) => {
+            console.log(error)
+            alert('Houve uma falha ao tentar cadastrar')
+            this.$refs.form.reset()
+          })
+    }
+  }
+}
+
+</script>
