@@ -69,10 +69,7 @@
             </v-card-item>
           </v-card>
           </v-col>
-        </v-row>
-          
-          
-        
+        </v-row>   
       </v-container>
     </v-main>
   </v-app>
