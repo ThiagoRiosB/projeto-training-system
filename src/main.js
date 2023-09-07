@@ -1,3 +1,7 @@
+import VueDatePicker from '@vuepic/vue-datepicker';
+
+import '@vuepic/vue-datepicker/dist/main.css'
+
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./routers/routes";
@@ -15,5 +19,7 @@ const vuetify = createVuetify({
     defaultSet: "mdi",
   },
 });
+const app = createApp(App)
 
-createApp(App).use(vuetify).use(router).mount("#app");
+app.component('VueDatePicker', VueDatePicker)
+app.use(vuetify).use(router).mount("#app");

@@ -34,6 +34,7 @@
         </v-btn>
       </template>
     </v-app-bar>
+    
     <v-main class="ma-15">
       <v-container>
         <h1 class="text-h4">Bem vindo, {{ userInfo.name }}</h1>
@@ -44,7 +45,7 @@
               <v-card-text class="pa-2">{{ dashboardInfo.amount_students }} Alunos</v-card-text>
               <v-card-actions>
               <v-btn variant="outlined">
-                <router-link class="text-decoration-none text-black" to="/CadastrarAluno">
+                <router-link class="text-decoration-none text-black" to="/cadastrar-aluno">
               Adicionar</router-link>
              </v-btn>
              </v-card-actions>
