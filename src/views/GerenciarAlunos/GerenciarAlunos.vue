@@ -65,8 +65,9 @@
               <tbody v-if="studentsName.students">
               <tr v-for="studentsNames in nomesFiltrados" :key="studentsNames.id">
                 <td>{{ studentsNames.name }}</td>
+
                 <td>
-                  <v-btn><router-link variant="tonal" class="text-decoration-none text-black" to="/cadastrar-treino">Montar treino</router-link></v-btn>
+                  <v-btn @click="() => redirectCadastrarTreino(studentsNames)">Montar treino</v-btn>
                   <v-btn><router-link variant="tonal" class="text-decoration-none text-black" to="/visualizar-treino">Ver</router-link></v-btn>
                 </td>
               </tr>
@@ -107,5 +108,14 @@
       );
     },
   },
+  methods: {
+    redirectCadastrarTreino(treino) {
+      this.$router.push({
+        path: `/cadastrar-treino/${treino.id}`,
+      })
+      
+  }
+  
+}
 }
 </script>

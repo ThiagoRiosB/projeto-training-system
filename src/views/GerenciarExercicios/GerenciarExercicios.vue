@@ -105,6 +105,7 @@
         })
         .then(() => {
             alert('Cadastrado com sucesso')
+            this.$refs.form.reset()
           })
           .catch((error) => {
             console.log(error)

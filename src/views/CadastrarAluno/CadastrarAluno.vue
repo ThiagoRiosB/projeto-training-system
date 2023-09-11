@@ -1,5 +1,4 @@
 <template>
-  {{ console.log(dataFormatada) }} 
   <v-app>
     <v-navigation-drawer v-model="isDrawerOpen">
       <v-list>
@@ -64,16 +63,14 @@
 
                  <v-row>
                     <v-text-field class="pa-5"  v-model="cep" :rules="[value => !!value || 'O CEP é obrigatório', value => value.length  == 8 || 'CEP inválido']" variant="outlined" type="number" label="CEP" placeholder="CEP" @blur="zipCodeRequest"/>
-                    <v-text-field class="pa-5"  v-model="street" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" type="text" label="Logradouro" placeholder="Logradouro"/>
+                    <v-text-field class="pa-5"  v-model="street" :rules="[value => !!value || 'O logradouro é obrigatório']" variant="outlined" type="text" label="Logradouro" placeholder="Logradouro"/>
                  </v-row>
 
                  <v-row>
-                  
-                  
-                    <v-text-field class="pa-5" v-model="number" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" type="text" label="Número" placeholder="Número"/>
-                    <v-select class="pa-5"  v-model="province" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" label="Estado" placeholder="Estado"/>
-                    <v-text-field class="pa-5"  v-model="neighborhood" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" type="text" label="Bairro" placeholder="Bairro"/>
-                    <v-text-field class="pa-5" v-model="city" :rules="[value => !!value || 'O nome é obrigatório']" variant="outlined" type="text" label="Cidade" placeholder="Cidade"/>
+                    <v-text-field class="pa-5" v-model="number" :rules="[value => !!value || 'O número é obrigatório']" variant="outlined" type="text" label="Número" placeholder="Número"/>
+                    <v-select class="pa-5"  v-model="province" :rules="[value => !!value || 'O estado é obrigatório']" variant="outlined" label="Estado" placeholder="Estado"/>
+                    <v-text-field class="pa-5"  v-model="neighborhood" :rules="[value => !!value || 'O bairro é obrigatório']" variant="outlined" type="text" label="Bairro" placeholder="Bairro"/>
+                    <v-text-field class="pa-5" v-model="city" :rules="[value => !!value || 'A cidade é obrigatória']" variant="outlined" type="text" label="Cidade" placeholder="Cidade"/>
                     <v-text-field class="pa-5"  v-model="complement" variant="outlined" type="text" label="Complemento" placeholder="Complemento"/>
                   
                     
