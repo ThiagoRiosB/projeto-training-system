@@ -45,7 +45,7 @@
               <v-card-text class="pa-2">{{ dashboardInfo.amount_students }} Alunos</v-card-text>
               <v-card-actions>
               <v-btn variant="outlined">
-                <router-link class="text-decoration-none text-black" to="/cadastrar-aluno">
+                <router-link class="text-decoration-none text-black" to="/gerenciar-alunos/">
               Adicionar</router-link>
              </v-btn>
              </v-card-actions>
@@ -60,7 +60,7 @@
             <v-car-item>
               <v-card-text class="pa-2">{{ dashboardInfo.amount_exercises }} Exercícios</v-card-text>
               <v-card-actions>
-              <v-btn variant="outlined"><router-link class="text-decoration-none text-black" to="/cadastrar-treino">
+              <v-btn variant="outlined"><router-link class="text-decoration-none text-black" to="/gerenciar-exercicios">
               Adicionar</router-link>
              </v-btn>
              </v-card-actions>

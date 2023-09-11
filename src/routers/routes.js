@@ -33,17 +33,18 @@ const router = createRouter({
           component: GerenciarExercicios 
       },
       {
-          path: '/gerenciar-alunos',
+          path: '/gerenciar-alunos/',
           name: 'GerenciarAlunos',
           component: GerenciarAlunos
       },
       {
-        path: '/cadastrar-aluno',
+        path: '/cadastrar-aluno/',
         name: 'CadastrarAluno',
         component: CadastrarAluno
     },
     {
-        path: '/cadastrar-treino',
+        path: '/cadastrar-treino/:id',
+        props: true,
         name: 'CadastrarTreino',
         component: CadastrarTreino
     },
