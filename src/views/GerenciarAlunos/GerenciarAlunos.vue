@@ -68,7 +68,7 @@
 
                 <td>
                   <v-btn @click="() => redirectCadastrarTreino(studentsNames)">Montar treino</v-btn>
-                  <v-btn><router-link variant="tonal" class="text-decoration-none text-black" to="/visualizar-treino">Ver</router-link></v-btn>
+                  <v-btn @click="() => redirectVizualizarTreino(studentsNames)">Ver</v-btn>
                 </td>
               </tr>
              </tbody>
@@ -113,7 +113,11 @@
       this.$router.push({
         path: `/cadastrar-treino/${treino.id}`,
       })
-      
+  },
+  redirectVizualizarTreino(vizualizar) {
+    this.$router.push({
+        path: `/visualizar-treino/${vizualizar.id}`,
+      })
   }
   
 }
