@@ -1,33 +1,35 @@
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="isDrawerOpen">
+  <v-app theme="dark">
+    <v-navigation-drawer color="gray-darken-1" v-model="isDrawerOpen">
       <v-list>
-        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-black" to="/dashboard">Home</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-black" to="/gerenciar-alunos">Gerenciar alunos</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-black" to="/gerenciar-exercicios">Gerenciar exercícios</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-white" to="/dashboard">Home</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-white" to="/gerenciar-alunos">Gerenciar alunos</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-white" to="/gerenciar-exercicios">Gerenciar exercícios</router-link></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar flat class="border-b" color="grey-lighten-2">
+    <v-app-bar flat class="border-b" color="gray-darken-1">
       <v-app-bar-nav-icon @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
-      <v-app-bar-title>Lab Treinos</v-app-bar-title>
       <template #append>
+        <div class="mr-16">
+          <img class="w-25 mr-16 d-none d-md-flex d-xl-none" src="../../img/img-fundo-transparente.png" alt="logo">
+        </div>
         <v-btn icon>
           <v-menu>
             <template #activator="{props}">
               <v-avatar v-bind="props">
-                <v-icon icon="mdi-account-circle" size="50"></v-icon>
+                <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>
               </v-avatar>
             </template>
             <v-card min-width="200px">
               <v-card-text>
               <div class="mx-auto text-center">
                 <v-avatar >
-                  <v-icon icon="mdi-account-circle" size="50"></v-icon>               
+                  <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>               
                 </v-avatar> 
                 <v-card-title >{{ userInfo.name }}</v-card-title>
                 <v-divider class="my-3"></v-divider>
-                <v-btn rounded variant="text"><router-link class="text-decoration-none text-black" to="/">Sair</router-link></v-btn>
-              </div>             
+                <v-btn rounded variant="text"><router-link class="text-decoration-none text-white" to="/">Sair</router-link></v-btn>
+              </div>        
             </v-card-text>
             </v-card>
           </v-menu>
@@ -43,13 +45,13 @@
         <v-divider class="my-3 "></v-divider>
         <v-form ref="form" class="d-flex" @submit.prevent="handleSubmit">
           <v-text-field class="mr-15"  v-model="description" :rules="[value => !!value || 'O nome do exercício é obrigatório']" variant="outlined" type="text" label="Digite o nome do exercício" placeholder="Digite o nome do exercício"/>
-          <v-btn class="pl-2" variant="elevated" type="submit">Cadastrar</v-btn>
+          <v-btn class="pl-2 text-white" color="orange" variant="outlined" type="submit">Cadastrar</v-btn>
         </v-form> 
-          <v-card flat class="border mt-15">
+          <v-card color="orange" flat class="border mt-15">
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th>
+                  <th class="font-weight-black">
                     Nome
                   </th>
                 </tr>

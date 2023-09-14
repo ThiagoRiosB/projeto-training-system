@@ -1,33 +1,35 @@
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="isDrawerOpen">
+  <v-app theme="dark">
+    <v-navigation-drawer color="gray-darken-1" v-model="isDrawerOpen">
       <v-list>
-        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-black" to="/dashboard">Home</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-black" to="/gerenciar-alunos">Gerenciar alunos</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-black" to="/gerenciar-exercicios">Gerenciar exercícios</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-white" to="/dashboard">Home</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-white" to="/gerenciar-alunos">Gerenciar alunos</router-link></v-list-item>
+        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-white" to="/gerenciar-exercicios">Gerenciar exercícios</router-link></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar flat class="border-b" color="grey-lighten-2">
+    <v-app-bar flat class="border-b" color="gray-darken-1">
       <v-app-bar-nav-icon @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
-      <v-app-bar-title>Lab Treinos</v-app-bar-title>
       <template #append>
+        <div class="mr-16">
+          <img class="w-25 mr-16 d-none d-md-flex d-xl-none" src="../../img/img-fundo-transparente.png" alt="logo">
+        </div>
         <v-btn icon>
           <v-menu>
             <template #activator="{props}">
               <v-avatar v-bind="props">
-                <v-icon icon="mdi-account-circle" size="50"></v-icon>
+                <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>
               </v-avatar>
             </template>
             <v-card min-width="200px">
               <v-card-text>
               <div class="mx-auto text-center">
                 <v-avatar >
-                  <v-icon icon="mdi-account-circle" size="50"></v-icon>               
+                  <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>               
                 </v-avatar> 
                 <v-card-title >{{ userInfo.name }}</v-card-title>
                 <v-divider class="my-3"></v-divider>
-                <v-btn rounded variant="text"><router-link class="text-decoration-none text-black" to="/">Sair</router-link></v-btn>
-              </div>             
+                <v-btn rounded variant="text"><router-link class="text-decoration-none text-white" to="/">Sair</router-link></v-btn>
+              </div>        
             </v-card-text>
             </v-card>
           </v-menu>
@@ -37,12 +39,11 @@
     
     <v-main class="ma-15">
       <v-container>       
-          <v-card flat class="border mt-15">
-            <v-card-title>
+            <div>
                 <v-icon icon="mdi-account-multiple" size="50"></v-icon>
                 <v-text class="pa-5 font-weight-bold">Alunos</v-text> 
-             </v-card-title>
-          </v-card> 
+             </div>
+             <v-divider class="my-3"></v-divider>
           <v-card flat class="border mt-15 d-flex flex-column">
             <v-form ref="form" class="ma-10" @submit.prevent="handleSubmit">
                 <v-row>
@@ -53,8 +54,7 @@
         
                    <v-col>
                     <v-text-field  v-model="email" :rules="[value => validateEmail(value) || 'E-mail inválido']" variant="outlined" type="email" label="Email" placeholder="Email"/>
-                    <VueDatePicker v-model="date_birth" :max-date="new Date()" locale="pt-BR"
-                    cancelText="cancelar" selectText="Selecionar" label="Selecione a data"
+                    <VueDatePicker class="larger-date-input" id="dp__theme_dark" v-model="date_birth" :max-date="new Date()" :value="new Date()" locale="pt-BR" cancelText="cancelar" selectText="Selecionar" label="Selecione a data"
                    :format="format" :enable-time-picker="false"/>
                     </v-col>
                   </v-row>
@@ -75,7 +75,7 @@
                   
                     
                 </v-row>     
-            <v-btn class="pl-2" variant="elevated" type="submit">Cadastrar</v-btn>
+            <v-btn class="pl-2" variant="outlined" color="orange" type="submit">Cadastrar</v-btn>
             </v-form> 
            </v-card>
          </v-container>
@@ -83,6 +83,17 @@
    
   </v-app>
 </template>
+
+<style>
+#dp__theme_dark {
+  --dp-background-color: #212121;
+}
+.larger-date-input input {
+  width: 500px; 
+  height: 55px;
+  
+}
+</style>
 
 <script>
   import axios from 'axios'
