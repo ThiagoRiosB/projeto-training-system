@@ -49,7 +49,7 @@
         <v-divider class="my-3 "></v-divider>
         <v-form ref="form" class="d-flex" @submit.prevent="handleSubmit">
           <v-text-field class="mr-15" v-model="description"
-            :rules="[value => !!value || 'O nome do exercício é obrigatório']" variant="outlined" type="text"
+          :rules="[value => validateName(value) || 'Exercício inválido!']" variant="outlined" type="text"
             label="Digite o nome do exercício" placeholder="Digite o nome do exercício" />
           <v-btn class="pl-2 text-white" color="orange" variant="outlined" type="submit">Cadastrar</v-btn>
         </v-form>
@@ -96,6 +96,15 @@ export default {
     this.userInfo = JSON.parse(localStorage.getItem('user-info')) || null
   },
   methods: {
+    validateName(name) {
+      const nameRegex = /^(?!\s)[A-Za-zÀ-ÿ\u00f1\u00d1\s]+$/;
+
+      if (nameRegex.test(name)) {
+        return true
+      } else {
+        return false
+      }
+    },
 
     async handleSubmit() {
       const { valid } = await this.$refs.form.validate()
