@@ -53,10 +53,10 @@
             <v-text class="text-h2">Hoje</v-text>
           </v-row>
           <div>
-            <v-table density="compact">
+            <v-table class="pa-5" density="compact">
               <tbody v-if="loaded">
-                <tr v-for="treinosDia in exerciciosFiltrados" :key="treinosDia.id">
-                  <p><input class="ma-2" type="checkbox" @click="postItens(treinosDia.id, studentId, treinosDia.day)" />{{
+                <tr class="pa-2" v-for="treinosDia in exerciciosFiltrados" :key="treinosDia.id">
+                  <p><input class="ma-3" type="checkbox" @click="postItens(treinosDia.id, studentId, treinosDia.day)" />{{
                     treinosDia.exercise_description }} | {{ treinosDia.weight }}KG | {{ treinosDia.repetitions
   }}repetições | {{ treinosDia.break_time }} segundos de pausa</p>
                 </tr>
@@ -118,7 +118,8 @@ export default {
       loaded: "",
       workout_id: "",
       informacoesDia: "",
-      exerciciosDia: []
+      exerciciosDia: [],
+      validExercice: true
 
     }
   },
