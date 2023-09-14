@@ -1,35 +1,37 @@
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="isDrawerOpen">
+  <v-app theme="dark">
+    <v-navigation-drawer color="gray-darken-1" v-model="isDrawerOpen">
       <v-list>
-        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-black"
+        <v-list-item prepend-icon="mdi-home"><router-link class="text-decoration-none text-white"
             to="/dashboard">Home</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-black"
+        <v-list-item prepend-icon="mdi-account"><router-link class="text-decoration-none text-white"
             to="/gerenciar-alunos">Gerenciar alunos</router-link></v-list-item>
-        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-black"
+        <v-list-item prepend-icon="mdi-weight-lifter"><router-link class="text-decoration-none text-white"
             to="/gerenciar-exercicios">Gerenciar exercícios</router-link></v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar flat class="border-b" color="grey-lighten-2">
+    <v-app-bar flat class="border-b d-flex justify-space-between" color="gray-darken-1">
       <v-app-bar-nav-icon @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
-      <v-app-bar-title>Lab Treinos</v-app-bar-title>
       <template #append>
+        <div class="mr-16">
+          <img class="w-25 mr-16 d-none d-md-flex d-xl-none" src="../../img/img-fundo-transparente.png" alt="logo">
+        </div>
         <v-btn icon>
           <v-menu>
             <template #activator="{ props }">
               <v-avatar v-bind="props">
-                <v-icon icon="mdi-account-circle" size="50"></v-icon>
+                <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>
               </v-avatar>
             </template>
             <v-card min-width="200px">
               <v-card-text>
                 <div class="mx-auto text-center">
                   <v-avatar>
-                    <v-icon icon="mdi-account-circle" size="50"></v-icon>
+                    <v-icon color="white" icon="mdi-account-circle" size="50"></v-icon>
                   </v-avatar>
                   <v-card-title>{{ userInfo.name }}</v-card-title>
                   <v-divider class="my-3"></v-divider>
-                  <v-btn rounded variant="text"><router-link class="text-decoration-none text-black"
+                  <v-btn rounded variant="text"><router-link class="text-decoration-none text-white"
                       to="/">Sair</router-link></v-btn>
                 </div>
               </v-card-text>
@@ -64,25 +66,25 @@
 
           <div id="app">
             <div class="ma-10">
-              <v-btn variant="text" @click="visualizarDadosCard('Segunda')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Segunda')">
                 Segunda
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Terça')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Terça')">
                 Terça
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Quarta')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Quarta')">
                 Quarta
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Quinta')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Quinta')">
                 Quinta
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Sexta')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Sexta')">
                 Sexta
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Sábado')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Sábado')">
                 Sábado
               </v-btn>
-              <v-btn variant="text" @click="visualizarDadosCard('Domingo')">
+              <v-btn color="orange" variant="text" @click="visualizarDadosCard('Domingo')">
                 Domingo
               </v-btn>
             </div>
