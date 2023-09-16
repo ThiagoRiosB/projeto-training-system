@@ -21,6 +21,11 @@
 </template>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #background-container {
   background-image: url('../../img/img-logo2.png');
   background-position: center;
