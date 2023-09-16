@@ -177,7 +177,6 @@ export default {
         .catch((error) => {
           console.log(error)
           alert('Houve uma falha ao tentar cadastrar')
-          this.$refs.form.reset()
         })
     }
   }

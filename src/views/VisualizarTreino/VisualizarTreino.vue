@@ -58,7 +58,7 @@
                 <tr v-for="treinosDia in exerciciosFiltrados" :key="treinosDia.id">
                   <p><input class="ma-3" type="checkbox" @click="postItens(treinosDia.id, studentId, treinosDia.day)" />{{
                     treinosDia.exercise_description }} | {{ treinosDia.weight }}KG | {{ treinosDia.repetitions
-  }}repetições | {{ treinosDia.break_time }} segundos de pausa</p>
+  }} repetições | {{ treinosDia.break_time }} segundos de pausa</p>
                 </tr>
                 <tr v-if="exerciciosFiltrados.length === 0">
                   <td colspan="5">Não há exercícios cadastrados para este dia.</td>
@@ -94,7 +94,7 @@
 
             <v-card class="pa-10" v-if="exerciciosDisponiveis">
               <div class="pa-1" v-for="exerciciosDia of exerciciosDia">
-                <p>{{ exerciciosDia.nome }} | {{ exerciciosDia.peso }}KG | {{ exerciciosDia.repeticoes }} repetições | {{
+                <p>{{ exerciciosDia.nome }} | {{ exerciciosDia.peso }} KG | {{ exerciciosDia.repeticoes }} repetições | {{
                   exerciciosDia.descanso }} segundos de pausa</p>
               </div>
             </v-card>

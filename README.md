@@ -1,29 +1,35 @@
-# projeto-training-system
+# Training System
 
-This template should help get you started developing with Vue 3 in Vite.
+O sistema Training System é uma solução completa para academias, permitindo que você armazene informações detalhadas dos seus alunos e crie treinamentos personalizados com facilidade.
+Simplificamos a gestão de dados e treinamentos, 
+proporcionando uma experiência eficiente e eficaz para ajudar você a alcançar os melhores resultados com seus alunos.
 
-## Recommended IDE Setup
+## Tecnologias Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+**HTML:** Linguagem de marcação utilizada para criar e estruturar documentos na World Wide Web.
 
-## Customize configuration
+**CSS:** Linguagem de estilo utilizada em conjunto com o HTML para controlar a apresentação e a aparência de páginas da web.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+**JAVASCRIPT:** Linguagem de programação utilizada para criar interatividade e funcionalidades dinâmicas em páginas da web.
 
-## Project Setup
+**VUEJS:** É um framework JavaScript de código aberto utilizado para a criação de interfaces de usuário interativas e dinâmicas em aplicações web.
 
-```sh
-npm install
-```
+**VUETIFY:** É uma biblioteca de componentes de interface do usuário (UI) para o framework JavaScript Vue.js.
 
-### Compile and Hot-Reload for Development
+**VUEDATEPICKER:** É um componente de datepicker para aplicações Vue.js.
 
-```sh
-npm run dev
-```
+**AXIOS:** É uma biblioteca JavaScript que é usada para fazer requisições HTTP a servidores a partir de uma aplicação web.
+## Telas do Projeto
 
-### Compile and Minify for Production
+- Login
+- Cadastro de Usuários
+- Dashboard
+- Gerenciar Exercícios
+- Gerenciar Treinos
+- Cadastrar Aluno
+- Cadastrar Treino
+- Visualizar Treino
 
-```sh
-npm run build
-```
+
+## Demonstração das Telas
+<img src="src/img/login.png" />
