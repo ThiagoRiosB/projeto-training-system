@@ -55,10 +55,13 @@
           <div>
             <v-table class="pa-5" density="compact">
               <tbody v-if="loaded">
-                <tr class="pa-2" v-for="treinosDia in exerciciosFiltrados" :key="treinosDia.id">
+                <tr v-for="treinosDia in exerciciosFiltrados" :key="treinosDia.id">
                   <p><input class="ma-3" type="checkbox" @click="postItens(treinosDia.id, studentId, treinosDia.day)" />{{
                     treinosDia.exercise_description }} | {{ treinosDia.weight }}KG | {{ treinosDia.repetitions
   }}repetições | {{ treinosDia.break_time }} segundos de pausa</p>
+                </tr>
+                <tr v-if="exerciciosFiltrados.length === 0">
+                  <td colspan="5">Não há exercícios cadastrados para este dia.</td>
                 </tr>
               </tbody>
             </v-table>
@@ -89,12 +92,17 @@
               </v-btn>
             </div>
 
-            <v-card class="pa-10" v-model="informacoesDia">
+            <v-card class="pa-10" v-if="exerciciosDisponiveis">
               <div class="pa-1" v-for="exerciciosDia of exerciciosDia">
                 <p>{{ exerciciosDia.nome }} | {{ exerciciosDia.peso }}KG | {{ exerciciosDia.repeticoes }} repetições | {{
                   exerciciosDia.descanso }} segundos de pausa</p>
               </div>
             </v-card>
+
+            <div v-else>
+              <p class="">Não há exercícios cadastrados para este dia.</p>
+            </div>
+
           </div>
         </v-form>
       </v-container>
@@ -119,8 +127,7 @@ export default {
       workout_id: "",
       informacoesDia: "",
       exerciciosDia: [],
-      validExercice: true
-
+      exerciciosDisponiveis: false,
     }
   },
   async mounted() {
@@ -153,11 +160,14 @@ export default {
       const daySelect = this.studentsName
       const diaSemana = daySelect.filter(clientes =>
         clientes.day === diaSelecionado)
+      this.exerciciosDisponiveis = diaSemana.length > 0;
       for (let index = 0; index < diaSemana.length; index++) {
         this.exerciciosDia.push({
           nome: diaSemana[index].exercise_description,
-          peso: diaSemana[index].weight, repeticoes: diaSemana[index].repetitions,
-          descanso: diaSemana[index].break_time, dia: diaSemana[index].day
+          peso: diaSemana[index].weight,
+          repeticoes: diaSemana[index].repetitions,
+          descanso: diaSemana[index].break_time, dia:
+            diaSemana[index].day
         })
       }
     },
@@ -172,8 +182,6 @@ export default {
         }
       })
     }
-  },
-
-
+  }
 }
 </script>
