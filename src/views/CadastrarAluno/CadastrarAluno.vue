@@ -61,7 +61,7 @@
 
               <v-col>
                 <v-text-field v-model="email" :rules="[value => validateEmail(value) || 'E-mail inválido']"
-                  variant="outlined" type="email" label="Email" placeholder="Email" />
+                  variant="outlined" type="email" label="E-mail" placeholder="E-mail" />
                 <VueDatePicker class="larger-date-input" id="dp__theme_dark" v-model="date_birth" :max-date="new Date()"
                   :value="new Date()" locale="pt-BR" cancelText="cancelar" selectText="Selecionar"
                   label="Selecione a data" :format="format" :enable-time-picker="false" />

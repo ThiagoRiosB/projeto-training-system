@@ -6,7 +6,7 @@
           class="d-flex flex-column w-30 border rounded elevation-2 pa-5" @submit.prevent="handleSubmit">
           <img src="../../img/img-fundo-transparente.png" class="w-50 ma-auto" alt="img-logo">
           <v-text-field v-model="user.email" :rules="[value => !!value || 'O e-mail é obrigatório']" variant="outlined"
-            type="email" label="Email" placeholder="Email" />
+            type="email" label="E-mail" placeholder="E-mail" />
           <v-text-field v-model="user.password" :rules="[value => !!value || 'A senha é obrigatória!']" variant="outlined"
             type="password" label="Senha" placeholder="Senha" />
           <v-btn variant="outlined" color="orange-accent-3" class="w-25 bg-grey-darken-3" type="submit">Entrar</v-btn>

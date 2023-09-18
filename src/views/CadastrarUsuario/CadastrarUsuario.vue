@@ -8,7 +8,7 @@
           <v-text-field class="pt-2" v-model="name" :rules="[value => validateName(value) || 'Nome inválido']"
             variant="outlined" type="text" label="Nome completo" placeholder="Nome completo" />
           <v-text-field class="pt-2" v-model="email" :rules="[value => validateEmail(value) || 'E-mail inválido']"
-            variant="outlined" type="email" label="Email" placeholder="Email" />
+            variant="outlined" type="email" label="E-mail" placeholder="E-mail" />
           <v-text-field class="pt-2" v-model="password"
             :rules="[value => value.length >= 8 || 'A senha deve ter no mínimo 8 caracteres!', value => value.length <= 20 || 'A senha deve ter no máximo 20 caracteres!']"
             variant="outlined" type="password" label="Senha" placeholder="Senha" />
@@ -19,9 +19,11 @@
             variant="outlined" :items="items"></v-select>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn variant="outlined" color="orange-accent-3" type="submit">Cadastrar</v-btn>
-            <v-btn variant="outlined" color="orange-accent-3" type="button"><router-link
-                class="text-decoration-none text-orange" to="/">Voltar</router-link></v-btn>
+            <v-btn  variant="outlined" color="orange-accent-3" type="submit">Cadastrar</v-btn>
+            <div class="pa-2">
+               <router-link
+                  class="text-decoration-none text-orange" to="/"><v-btn variant="outlined" color="orange-accent-3" type="button">Voltar</v-btn></router-link>
+            </div>
           </v-card-actions>
         </v-form>
       </v-container>

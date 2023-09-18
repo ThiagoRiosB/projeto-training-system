@@ -141,16 +141,15 @@ export default {
     } catch (error) {
       console.error('Erro ao carregar os dados da API', error);
     }
-
   },
   computed: {
     exerciciosFiltrados() {
       const data = new Date()
       const day = data.getDay()
-      const week = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+      const week = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
       const exercises = this.studentsName
       return exercises.filter(nome =>
-        nome.day.toLowerCase().includes(week[day - 1].toLowerCase()))
+        nome.day.toLowerCase() === week[day].toLowerCase())
     },
   },
   methods: {
